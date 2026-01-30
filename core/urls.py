@@ -24,6 +24,6 @@ urlpatterns = [
 
     path('',HomeView.as_view(), name="home"),
 
-    path('blog/', include(('blog.urls', 'blog'), namespace='blog')), #Regla mental para recordarlo: core decide A DÓNDE va la URL, la app decide QUÉ hacer con ella
+    path('blog/', include(('blog.urls'), namespace='blog')), #Regla mental para recordarlo: core decide A DÓNDE va la URL, la app decide QUÉ hacer con ella, indicaremos blog.url, de aquí engancharemos las url de la app blog y desde url,py de blog, empezaremos a crear y trabajar con las páginas
 
 ]
