@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include # con include damos las url a core de blog
 
 from .views import HomeView
 
@@ -24,5 +24,6 @@ urlpatterns = [
 
     path('',HomeView.as_view(), name="home"),
 
-    path('blog/',include('blog.urls', namespace="blog"))
+    path('blog/', include(('blog.urls'), namespace='blog')), #Regla mental para recordarlo: core decide A DÓNDE va la URL, la app decide QUÉ hacer con ella, indicaremos blog.url, de aquí engancharemos las url de la app blog y desde url,py de blog, empezaremos a crear y trabajar con las páginas
+
 ]
