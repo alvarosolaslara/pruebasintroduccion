@@ -1,3 +1,26 @@
-blog list
-<br>
-<a href="{% url 'blog:create'%}">Create</a>
+{% extends 'base.html' %} <!--Cogemos la estructura de base.html y solo cambiarán las partes que yo indique-->
+
+{% block content %}
+    <p>blog list, listaremos los modelos usando un for</p>
+
+    <br>
+
+    {%for post in posts%}
+    <a href="{% url 'blog:detail' post.id %}">{{post.title}}</a>
+
+    <a href="{% url 'blog:delete' post.id %}">Delete</a> <!--Con el post id y recorriendolo en el for, podremos borrar por id cada modelo-->
+    {% endfor %}
+
+
+    <div class="flex gap-4">
+
+
+
+        <a class="px-5 py-2.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition" href="{% url 'blog:update'%}">Update</a> <!--Recordemos que el update en el tutorial peta-->
+        <a class="px-5 py-2.5 rounded-xl bg-gray-200 text-gray-800 font-semibold hover:bg-gray-300 transition" href="{% url 'blog:create' %}">Create</a>
+        <a class="px-5 py-2.5 rounded-xl bg-red-600 text-white font-semibold hover:bg-red-700 transition" href="{%url 'blog:mov'  %}">move</a>
+    </div>
+
+
+{% endblock content %}
+
