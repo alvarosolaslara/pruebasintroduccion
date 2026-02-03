@@ -1,1 +1,7 @@
-hola, visita mi blog <a href="{%url 'blog:home' %}">blog aqui</a> <!-- blog equivale al nameespace 'blog' de core y en url de blog contiene name='home'-->
+
+
+{% extends 'base.html' %}
+
+{% block content %}hola, visita mi blog <a class="text-blue-500" href="{% url 'blog:home' %}">blog aqui</a>{% endblock content %} <!-- blog equivale al nameespace 'blog' de core y en url de blog contiene name='home'-->
+
+<!--Generando un block que se encuentra en base.html, le daremos estilos al contenido de index-->
